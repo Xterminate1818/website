@@ -1,9 +1,19 @@
-<!DOCTYPE html><html lang="en"><head> 
-<link rel="preload" href="/web-bcd4f78229f36bff_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/web-bcd4f78229f36bff.js"></head>
+<!DOCTYPE html><html lang="en"><head><style>
+  div.center {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    margin=10%;
+  }
+</style>
+
+     
+<link rel="preload" href="/web-7213d00e40029716_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/web-7213d00e40029716.js"></head>
     <body>
 
-<script type="module">import init from '/web-bcd4f78229f36bff.js';init('/web-bcd4f78229f36bff_bg.wasm');</script><script>(function () {
+<script type="module">import init from '/web-7213d00e40029716.js';init('/web-7213d00e40029716_bg.wasm');</script><script>(function () {
     var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     var url = protocol + '//' + window.location.host + '/_trunk/ws';
     var poll_interval = 5000;
