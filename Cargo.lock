@@ -916,7 +916,7 @@ dependencies = [
 [[package]]
 name = "math"
 version = "0.1.0"
-source = "git+https://github.com/Xterminate1818/math.git#9cbb93a93f494650c30afc57b34d341069b041d2"
+source = "git+https://github.com/Xterminate1818/math.git#d5b94e1f4da508956578e7c1fe63381c07d9676b"
 dependencies = [
  "num",
  "thiserror",
