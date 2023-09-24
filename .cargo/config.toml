@@ -4,3 +4,4 @@ build-std-features = ["panic_immediate_abort"]
 
 [build]
 rustflags = ["--cfg=has_std"]
+target = "wasm32-unknown-unknown"

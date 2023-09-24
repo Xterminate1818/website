@@ -17,11 +17,7 @@ fn Explanation() -> impl IntoView {
 fn App() -> impl IntoView {
   view! {
     <div>
-      <h1> "Online Calculator" </h1>
       <Calculator/>
-    </div>
-    <div>
-      <Explanation/>
     </div>
   }
 }
