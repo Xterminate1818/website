@@ -1,8 +1,11 @@
 #![feature(fn_traits)]
+pub mod base_conversion;
 pub mod calculator;
 
+use base_conversion::*;
 use calculator::*;
 use leptos::*;
+use leptos_router::*;
 
 #[component]
 fn Explanation() -> impl IntoView {
@@ -14,14 +17,29 @@ fn Explanation() -> impl IntoView {
 }
 
 #[component]
+fn Both() -> impl IntoView {
+  view! {
+    <BaseConversion/>
+    <Calculator/>
+  }
+}
+
+#[component]
 fn App() -> impl IntoView {
   view! {
-    <div>
-      <Calculator/>
-    </div>
+    <Router>
+      <main>
+      <Routes>
+        <Route path="/conversion" view=BaseConversion/>
+        <Route path="calc" view=Calculator/>
+        <Route path="" view=Both/>
+      </Routes>
+      </main>
+    </Router>
   }
 }
 
 fn main() {
+  console_log::init_with_level(log::Level::Debug).unwrap();
   mount_to_body(|| view! {<App/>})
 }

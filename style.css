@@ -13,6 +13,22 @@ body {
 
 a {
   color: var(--lightblue);
+  cursor: pointer;
+}
+
+table {
+  text-align: left;
+  border: solid;
+  font-size: 1.2em;
+}
+
+#hist {
+  border: none;
+}
+
+td {
+  padding: 0em 0.3em 0em 0.5em;
+  whitespace: pre-wrap;
 }
 
 a:hover {
@@ -32,6 +48,7 @@ div.calc li:hover {
   color: var(--blue);
   cursor: pointer;
 }
+
 
 div.calc input {
   width: 40%;
