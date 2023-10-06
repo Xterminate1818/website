@@ -11,7 +11,7 @@ leptos-use = { version = "0.7", features = ["storage"]}
 leptos_router = { version = "0.5", features = ["csr"] }
 math = { git = "https://github.com/Xterminate1818/math.git"}
 markdown = "1.0.0-alpha.14"
-based = { path="../based/" }
+based = { git = "https://github.com/Xterminate1818/based.git" }
 log = "0.4"
 console_log = "1.0"
 serde = "1.0"
