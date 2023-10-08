@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+style-file = "style/output.css"
 
 [dependencies]
 leptos = { version = "0.5", features = ["csr", "nightly"] }
@@ -11,14 +12,16 @@ leptos-use = { version = "0.7", features = ["storage"]}
 leptos_router = { version = "0.5", features = ["csr"] }
 math = { git = "https://github.com/Xterminate1818/math.git"}
 markdown = "1.0.0-alpha.14"
-based = { git = "https://github.com/Xterminate1818/based.git" }
+based = { git="https://github.com/Xterminate1818/based" }
 log = "0.4"
 console_log = "1.0"
 serde = "1.0"
 num-traits = "0.2"
+console_error_panic_hook = "0.1"
 
 [profile.release]
 opt-level = 'z'
 lto = true
 codegen-units = 1
 panic = "abort"
+

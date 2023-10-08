@@ -1,0 +1,17 @@
+@use "pico/pico";
+
+:root {
+  --border-radius: 0;
+}
+
+button {
+  border-radius: 0;
+}
+
+table.binary td {
+  padding: 0.25em 1em 0.25em 1em;
+}
+
+
+
+
