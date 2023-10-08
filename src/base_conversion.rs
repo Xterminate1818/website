@@ -72,7 +72,7 @@ fn RememberButton(
     write_hist(h);
   };
   view! {
-    <button on:click=remember> "Remember" </button>
+    <button type="button" on:click=remember> "Remember" </button>
   }
 }
 
@@ -80,7 +80,7 @@ fn RememberButton(
 fn ClearAllButton() -> impl IntoView {
   let (_, write_hist, _) = get_history();
   view! {
-    <button class="secondary" on:click=move|_| write_hist(vec![])> "Clear history" </button>
+    <button type="button" class="secondary" on:click=move|_| write_hist(vec![])> "Clear history" </button>
   }
 }
 
@@ -157,7 +157,7 @@ pub fn SizeButton(
   let set_size = move |_| write_bytes(size);
   let name = size_name(size);
   view! {
-    <td role="button" on:click=set_size class="secondary" class:contrast=is_size>
+    <td role="button" type="button" on:click=set_size class="secondary" class:contrast=is_size>
       {name}
     </td>
   }
@@ -173,7 +173,7 @@ pub fn BaseButton(
   let set_size = move |_| write_base(base);
   let name = base_name(base);
   view! {
-    <td role="button" on:click=set_size class="secondary" class:contrast=is_size>
+    <td role="button" type="button" on:click=set_size class="secondary" class:contrast=is_size>
       {name}
     </td>
   }
@@ -258,7 +258,7 @@ where
   };
   let bit_entry = move |n: usize| {
     view! {
-      <td role="button" class = "secondary" class:contrast=move || get_bit(n) on:click=move|_| flip_bit(n)>
+      <td type="button" role="button" class = "secondary" class:contrast=move || get_bit(n) on:click=move|_| flip_bit(n)>
         {move || get_bit(n) as u64}
       </td>
     }
