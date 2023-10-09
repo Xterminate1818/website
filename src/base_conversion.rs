@@ -79,8 +79,10 @@ fn RememberButton(
 #[component]
 fn ClearAllButton() -> impl IntoView {
   let (_, write_hist, _) = get_history();
+  let on_click = move |_| write_hist(vec![]);
+  let on_touch = move |_| write_hist(vec![]);
   view! {
-    <button type="button" class="secondary" on:click=move|_| write_hist(vec![])> "Clear history" </button>
+    <button type="button" class="secondary" on:click=on_click on:touchstart=on_touch> "Clear history" </button>
   }
 }
 
@@ -155,9 +157,10 @@ pub fn SizeButton(
 ) -> impl IntoView {
   let is_size = move || read_bytes() == size;
   let set_size = move |_| write_bytes(size);
+  let on_touch = move |_| write_bytes(size);
   let name = size_name(size);
   view! {
-    <td role="button" type="button" on:click=set_size class="secondary" class:contrast=is_size>
+    <td role="button" type="button" on:click=set_size class="secondary" on:touchstart=on_touch class:contrast=is_size>
       {name}
     </td>
   }
@@ -171,9 +174,10 @@ pub fn BaseButton(
 ) -> impl IntoView {
   let is_size = move || read_base() == base;
   let set_size = move |_| write_base(base);
+  let on_touch = move |_| write_base(base);
   let name = base_name(base);
   view! {
-    <td role="button" type="button" on:click=set_size class="secondary" class:contrast=is_size>
+    <td role="button" type="button" on:touchstart=on_touch on:click=set_size class="secondary" class:contrast=is_size>
       {name}
     </td>
   }
@@ -258,7 +262,7 @@ where
   };
   let bit_entry = move |n: usize| {
     view! {
-      <td type="button" role="button" class = "secondary" class:contrast=move || get_bit(n) on:click=move|_| flip_bit(n)>
+      <td type="button" role="button" class = "secondary" class:contrast=move || get_bit(n) on:click=move|_| flip_bit(n) on:touchstart=move|_| flip_bit(n)>
         {move || get_bit(n) as u64}
       </td>
     }
