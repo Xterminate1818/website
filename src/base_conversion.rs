@@ -1,3 +1,4 @@
+use crate::util::*;
 use based::*;
 use leptos::*;
 use leptos_use::storage::use_storage;
@@ -220,7 +221,10 @@ pub fn BaseConversion() -> impl IntoView {
 
   view! {
     <article>
-      <header> "Programming Calculator" </header>
+      <Navigation>
+        <CrumbHome/>
+        <CrumbCurrent name="Base Conversion"/>
+      </Navigation>
       <div class="grid">
         <div>
           <div>
@@ -241,6 +245,7 @@ pub fn BaseConversion() -> impl IntoView {
         <ClearAllButton/>
         <History/>
       </div>
+    <footer> <Github repo="based"/> </footer>
     </article>
   }
 }

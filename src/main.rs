@@ -1,9 +1,13 @@
 #![feature(fn_traits)]
 pub mod base_conversion;
 pub mod calculator;
+mod home;
+pub mod util;
 
 use base_conversion::*;
 use calculator::*;
+use home::*;
+
 use leptos::*;
 use leptos_router::*;
 
@@ -18,15 +22,16 @@ fn Both() -> impl IntoView {
 #[component]
 fn App() -> impl IntoView {
   view! {
-  <Router>
-    <main class="container">
-      <Routes>
-        <Route path="/conversion" view=BaseConversion />
-        <Route path="calc" view=Calculator />
-        <Route path="" view=Both />
-      </Routes>
-    </main>
-  </Router>
+    <Router>
+      <main class="container">
+        <Routes>
+          <Route path="conversion" view=BaseConversion />
+          <Route path="calc" view=Calculator />
+          <Route path="about" view=About/>
+          <Route path="" view=Homepage />
+        </Routes>
+      </main>
+    </Router>
   }
 }
 

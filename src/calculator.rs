@@ -1,9 +1,11 @@
 use ::math::evaluate_to_string;
 use leptos::*;
 
+use crate::util::*;
+
 #[component]
 pub fn Example(
-  text: String,
+  #[prop(into)] text: String,
   io: (WriteSignal<String>, WriteSignal<String>),
 ) -> impl IntoView {
   let t2 = text.clone();
@@ -29,28 +31,30 @@ pub fn Calculator() -> impl IntoView {
   write_out(evaluate_to_string("".to_string()));
   view! {
     <article>
-      <header> <strong> "Calculator" </strong> </header>
+      <Navigation>
+        <CrumbHome/>
+        <CrumbCurrent name="Calculator"/>
+      </Navigation>
       <div>
         <input type="text" value=read_input placeholder="Expression" on:input=move|s| {
           let input = event_target_value(&s);
           let result = evaluate_to_string(input);
           write_out(result)
         }/>
-        <p>" = " {read_out}</p>
-        <p> "View source code on " <a target="_blank" href="https://github.com/Xterminate1818/math">"GitHub"</a> </p>
+        <p><strong>"result: "</strong> {read_out}</p>
         <hr/>
           <h3> "Examples to try:" </h3>
           <ul>
-            <Example text="5+3*2".to_string() io=io/>
-            <Example text="4^3^2+1".to_string() io=io/>
-            <Example text="sin(pi)".to_string() io=io/>
-            <Example text="e^4".to_string() io=io/>
-            <Example text="arctan(tan(2pi))".to_string() io=io/>
-            <Example text="sqrt(-1)".to_string() io=io/>
-            <Example text="sec(i)".to_string() io=io/>
+            <Example text="5+3*2" io=io/>
+            <Example text="4^3^2+1" io=io/>
+            <Example text="sin(pi)" io=io/>
+            <Example text="e^4" io=io/>
+            <Example text="arctan(tan(2pi))" io=io/>
+            <Example text="sqrt(-1)" io=io/>
+            <Example text="sec(i)" io=io/>
           </ul>
           <hr/>
-        <h3> "Made by Logan Gatlin" </h3>
+        <Github repo="math"/>
       </div>
     </article>
   }
